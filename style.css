@@ -50,3 +50,70 @@ header h1 {
   color: #fff;
 }
 
+/* Formulários */
+.form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form input {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  flex: 1;
+}
+
+.form button {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 0.4rem;
+  background: #0066cc;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.form button:hover {
+  opacity: 0.85;
+}
+
+/* Cartão de resultado */
+#result {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+#result h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #0066cc;
+}
+
+#result label {
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+  font-weight: 600;
+}
+
+#result input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.hidden {
+  display: none;
+}
