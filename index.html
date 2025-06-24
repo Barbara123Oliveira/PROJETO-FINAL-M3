@@ -12,11 +12,38 @@
     <p>Encontre ou edite qualquer CEP no Brasil usando a API ViaCEP</p>
   </header>
 
-  <!-- Alternância de modo -->
   <nav class="search-mode">
     <button id="modeCep" class="active">Buscar por CEP</button>
     <button id="modeEndereco">Buscar por Endereço</button>
   </nav>
+  <nav class="search-mode">
+    <button id="modeCep" class="active">Buscar por CEP</button>
+    <button id="modeEndereco">Buscar por Endereço</button>
+  </nav>
+
+  <section id="cepForm" class="form">
+    <input
+      id="cepInput"
+      type="text"
+      maxlength="8"
+      placeholder="Digite o CEP (somente números)"
+    />
+    <button id="cepBtn">Buscar</button>
+  </section>
+
+  <section id="enderecoForm" class="form hidden">
+    <input
+      id="ufInput"
+      type="text"
+      maxlength="2"
+      placeholder="UF (Ex.: SP)"
+    />
+    <input id="cidadeInput" type="text" placeholder="Cidade" />
+    <input id="logradouroInput" type="text" placeholder="Logradouro" />
+    <button id="enderecoBtn">Buscar</button>
+  </section>
+
+  <section id="result" class="hidden"></section>
     
 
     <script src="script.js"></script>
