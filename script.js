@@ -91,6 +91,32 @@ async function showEditableCard(data) {
     <strong>Logradouro:</strong> ${data.logradouro}<br>
     <strong>Bairro:</strong> ${data.bairro}<br>
     <strong>Cidade:</strong> ${data.localidade} - ${data.uf}<br>
+    <div id="freteResultado" style="margin-top: 10px;"></div>
   `;
   show(result);
 }
+
+// Ação: Calcular Frete
+$('#freteBtn')?.addEventListener('click', () => {
+  const peso = parseFloat($('#pesoInput')?.value.trim());
+  const cep = $('#cepInput')?.value.trim();
+
+  if (!cep || !/^\d{8}$/.test(cep)) {
+    alert('Digite um CEP válido antes de calcular o frete.');
+    return;
+  }
+
+  if (!peso || peso <= 0) {
+    alert('Informe um peso válido.');
+    return;
+  }
+
+  const freteBase = 15.0;
+  const taxaPorKg = 2.5;
+  const total = freteBase + peso * taxaPorKg;
+
+  const freteResultado = $('#freteResultado');
+  if (freteResultado) {
+    freteResultado.innerHTML = `<strong>Frete estimado:</strong> R$ ${total.toFixed(2)}`;
+  }
+});
