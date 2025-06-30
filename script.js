@@ -62,3 +62,35 @@ $('#enderecoBtn')?.addEventListener('click', async () => {
     console.error(error);
   }
 });
+
+// Função para buscar dados do CEP
+async function fetchCep(cep) {
+  try {
+    const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+    const data = await res.json();
+
+    if (data.erro) {
+      alert('CEP não encontrado.');
+      return;
+    }
+
+    await showEditableCard(data);
+  } catch (error) {
+    alert('Erro ao buscar o CEP. Verifique sua conexão.');
+    console.error(error);
+  }
+}
+
+// Exibir os dados na tela
+async function showEditableCard(data) {
+  const result = $('#result');
+  if (!result) return;
+
+  result.innerHTML = `
+    <strong>CEP:</strong> ${data.cep}<br>
+    <strong>Logradouro:</strong> ${data.logradouro}<br>
+    <strong>Bairro:</strong> ${data.bairro}<br>
+    <strong>Cidade:</strong> ${data.localidade} - ${data.uf}<br>
+  `;
+  show(result);
+}
